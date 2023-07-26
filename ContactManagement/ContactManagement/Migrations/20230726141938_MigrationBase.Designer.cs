@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContactManagement.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230726130108_MigrationBase")]
+    [Migration("20230726141938_MigrationBase")]
     partial class MigrationBase
     {
         /// <inheritdoc />
@@ -29,7 +29,8 @@ namespace ContactManagement.Migrations
 
                     b.Property<string>("Contato")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(9)
+                        .HasColumnType("varchar(9)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -37,8 +38,7 @@ namespace ContactManagement.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(9)
-                        .HasColumnType("varchar(9)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 

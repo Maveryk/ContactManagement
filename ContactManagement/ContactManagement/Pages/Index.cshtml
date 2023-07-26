@@ -1,10 +1,58 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Contacts";
 }
+<div class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+        <h1 class="display-4">Contatos</h1>
+      
+    </div>
+</div>
+<div class="container">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Contato</th>
+                <th scope="col">Email</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model.contacts)
+            {
+                <tr>
+                    <td>@contact.Id</td>
+                    <td>@contact.Name</td>
+                    <td>@contact.Contato</td>
+                    <td>@contact.Email</td>       
+                    <td>
+                        <form method="post">
+                            <span class="btn-group pull-right" >
+                                <a class="btn btn-warning btn-xs" asp-page="/Edit" asp-route-id="@contact.Id" style="background-color: blueviolet; height: 40px; margin-top: -1px; align-items: center">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                                    <p style="color: white">Editar</p>
+                                </a>                                
+                            </span>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post">
+                            <span class="btn-group pull-right" >
+                                <button type="submit" class="btn btn-danger btn-xs" style="align-items: center" asp-page-handler="Delete" asp-route-id="@contact.Id" style="height: 27px; margin-top: 0px;"
+                                        onclick="return confirm('Deseja realmente excluir este produto?');">
+                                    <span>Excluir</span>
+                                    
+                                </button>
+                            </span>
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
 </div>
