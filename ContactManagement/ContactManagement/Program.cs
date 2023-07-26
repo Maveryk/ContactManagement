@@ -16,7 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
-
+/*
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -29,7 +29,7 @@ using (var scope = app.Services.CreateScope())
         // Run EnsureCreated() to create the database and any pending migrations
         dbContext.Database.EnsureCreated();
     }
-}
+}*/
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

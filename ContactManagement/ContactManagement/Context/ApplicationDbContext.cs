@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ContactManagement.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactManagement.Context;
 
@@ -13,5 +14,5 @@ public class ApplicationDbContext : DbContext
     {
     }
 
-   
+    public DbSet<Contact> contacts { get; set; }
 }
