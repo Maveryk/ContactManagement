@@ -26,6 +26,25 @@ public class ContactRepository : IContactRepository
         }
     }
 
+    public bool ContatoExist(Contact contact)
+    {
+        try
+        {
+            var contactBd = _context.contacts.FirstOrDefault(x => x.Contato == contact.Contato);
+            if (contactBd == null)
+            {
+                return false;
+            }
+            return true;
+
+
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
     public void Delete(Contact contact)
     {
         try
@@ -71,6 +90,25 @@ public class ContactRepository : IContactRepository
 
             // Salve as alterações no banco de dados
             _context.SaveChanges();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    public bool EmailExist(Contact contact)
+    {
+        try
+        {
+            var contactBd = _context.contacts.FirstOrDefault(x => x.Email == contact.Email);
+            if (contactBd == null)
+            {
+               return false;
+            }
+            return true;
+
+
         }
         catch (Exception ex)
         {

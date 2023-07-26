@@ -9,4 +9,6 @@ public interface IContactRepository
     Contact Get(int id);
     void Edit(Contact contact);
     void Delete(Contact contact);
+    bool EmailExist(Contact contact);
+    bool ContatoExist(Contact contact);
 }
