@@ -6,7 +6,6 @@ using System.Data;
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-//var serverVersion = new MySqlServerVersion(new Version(8, 0, 26));
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 26));
 
 var connectionString = builder.Configuration.GetConnectionString("MariaDB");

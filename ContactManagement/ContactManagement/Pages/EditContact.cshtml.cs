@@ -32,6 +32,18 @@ namespace ContactManagement.Pages
         {
             if (ModelState.IsValid && contact != null)
             {
+                if (_contactRepository.EmailExist(contact))
+                {
+                    ModelState.AddModelError("contact.Email", "e-mail já cadastrado.");
+                    return Page();
+                }
+
+                if (_contactRepository.ContatoExist(contact))
+                {
+                    ModelState.AddModelError("contact.Contato", "Contato já cadastrado.");
+                    return Page();
+
+                }
                 contact.Id = id;
                 _contactRepository.Edit(contact);
 
