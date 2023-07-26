@@ -6,7 +6,7 @@ Use these instructions to get the project up and running.
 You will need the following tools:
 
 * [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/)
-* [.Net Core 3.0 or later](https://dotnet.microsoft.com/download/dotnet-core/6.0)
+* [.Net Core 6.0 or later](https://dotnet.microsoft.com/download/dotnet-core/6.0)
 * EF Core 7.0.4 or later
 
 ### Installing
