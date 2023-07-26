@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -14,12 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages\Add.cshtml.cs" />
+    <Compile Remove="Pages\Privacy.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Add.cshtml" />
-    <Content Remove="Pages\AddContact.razor" />
+    <Content Remove="Pages\Privacy.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

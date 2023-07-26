@@ -18,6 +18,10 @@ public class Contact
     [Required]
     public string Email { get; set; }
 
+    public Contact()
+    {
+    }
+
     public Contact(int id, string name, string contato, string email)
     {
         Id = id;

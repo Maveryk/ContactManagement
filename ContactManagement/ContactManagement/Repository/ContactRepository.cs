@@ -17,7 +17,7 @@ public class ContactRepository : IContactRepository
     {
         try
         {
-            _context.Add(contact);
+            _context.contacts.Add(contact);
             _context.SaveChanges();
         }
         catch (Exception ex)
@@ -30,7 +30,7 @@ public class ContactRepository : IContactRepository
     {
         try
         {
-            _context.Remove(contact);
+            _context.contacts.Remove(contact);
             _context.SaveChanges();
         }
         catch (Exception ex)
@@ -43,7 +43,22 @@ public class ContactRepository : IContactRepository
     {
         try
         {
-            _context.Update(contact);
+            var existingContact = _context.contacts.FirstOrDefault(c => c.Id == contact.Id);
+
+            if (existingContact == null)
+            {
+                throw new InvalidOperationException("O contato não foi encontrado no banco de dados.");
+            }
+
+            // Atualize as propriedades do contato existente com os novos valores
+            existingContact.Name = contact.Name;
+            existingContact.Contato = contact.Contato;
+            existingContact.Email = contact.Email;
+
+            // Indique que a entidade foi modificada e precisa ser atualizada no banco de dados
+            _context.Entry(existingContact).State = EntityState.Modified;
+
+            // Salve as alterações no banco de dados
             _context.SaveChanges();
         }
         catch (Exception ex)

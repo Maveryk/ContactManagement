@@ -8,8 +8,13 @@
         <h1 class="display-4">Contatos</h1>
       
     </div>
+
 </div>
+
 <div class="container">
+    <a class="btn btn-primary btn-sx pull-left" style="margin-top:20px;margin-bottom: 20px;" asp-page="/AddContact">
+        <i class="glyphicon glyphicon-plus"></i> Adicionar Novo Contato
+    </a>
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
@@ -32,9 +37,9 @@
                     <td>
                         <form method="post">
                             <span class="btn-group pull-right" >
-                                <a class="btn btn-warning btn-xs" asp-page="/Edit" asp-route-id="@contact.Id" style="background-color: blueviolet; height: 40px; margin-top: -1px; align-items: center">
+                                <a class="btn btn-warning btn-xs" asp-page="/EditContact" asp-route-id="@contact.Id" style="background-color: blueviolet; height: 40px; margin-top: -1px; align-items: center; color: white">
 
-                                    <p style="color: white">Editar</p>
+                                    Editar
                                 </a>                                
                             </span>
                         </form>
@@ -43,7 +48,7 @@
                         <form method="post">
                             <span class="btn-group pull-right" >
                                 <button type="submit" class="btn btn-danger btn-xs" style="align-items: center" asp-page-handler="Delete" asp-route-id="@contact.Id" style="height: 27px; margin-top: 0px;"
-                                        onclick="return confirm('Deseja realmente excluir este produto?');">
+                                        onclick="return confirm('Deseja realmente excluir este Contato?');">
                                     <span>Excluir</span>
                                     
                                 </button>

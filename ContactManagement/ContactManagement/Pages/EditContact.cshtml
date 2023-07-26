@@ -1,0 +1,59 @@
+﻿@page
+@model ContactManagement.Pages.EditContactModel
+@{
+    ViewData["Title"] = "Editar Contato";
+}
+
+
+
+<div>
+    <div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><strong>Novo Contato</strong></h3>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center">
+
+                    <div class="col-md-12 item_content ">
+                        <form method="post">
+                            <h4>
+                                <span>Informe os dados do Contato!!!</span>
+                            </h4>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4">
+                                        <div class="panel " style="align-content: center"
+                                            <div class="panel-body">
+                                                <div class="col-md-12" style="margin-top:15px;">
+                                                    <label asp-for="contact.Name" style="font-weight:bold;"></label>
+                                                    <input type='text' class='form-control' asp-for="contact.Name" />
+                                                    <span class="alert-danger" asp-validation-for="contact.Name"></span>
+                                                </div>
+                                                <div class="col-md-12" style="margin-top:15px;">
+                                                    <label asp-for="contact.Contato" style="font-weight:bold;"></label>
+                                                    <input type='text' class='form-control' asp-for="contact.Contato" />
+                                                    <span class="alert-danger" asp-validation-for="contact.Contato"></span>
+                                                </div>
+                                                <div class="col-md-12" style="margin-top:15px;">
+                                                    <label asp-for="contact.Email" style="font-weight:bold;"></label>
+                                                    <input type='text' class='form-control' asp-for="contact.Email" />
+                                                    <span class="alert-danger" asp-validation-for="contact.Email"></span>
+                                                </div>
+
+                                                <div class="text-center col-md-12" style="margin-top:35px;">
+                                                    <button class="btn btn-primary btn-sx" type="submit"><i class="glyphicon glyphicon-plus"></i> Editar Contato</button>
+                                                    <a class="btn btn-success btn-sx" asp-page="/Index"><i class="glyphicon glyphicon-backward"></i> Lista de Contatos </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
