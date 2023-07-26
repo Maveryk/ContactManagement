@@ -1,0 +1,62 @@
+﻿@page
+@model ContactManagement.Pages.DetailContactModel
+@{
+    ViewData["Title"] = "Detalhes Contato";
+}
+
+
+
+
+<div>
+    <div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><strong>Contato @Model.contact.Name</strong></h3>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center">
+
+                    <div class="col-md-12 item_content ">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4">
+                                        <div class="panel " style="align-content: center"
+                                            <div class="panel-body">
+                                                <div class="col-md-12" style="margin-top:15px;">
+                                                    <label asp-for="contact.Name" style="font-weight:bold;"></label>
+                                                    <p>@Model.contact.Name</p>
+                                                </div>
+                                                <div class="col-md-12" style="margin-top:15px;">
+                                                    <label asp-for="contact.Contato" style="font-weight:bold;"></label>
+                                                    <p>@Model.contact.Contato</p>
+                                                </div>
+                                                <div class="col-md-12" style="margin-top:15px;">
+                                                    <label asp-for="contact.Email" style="font-weight:bold;"></label>
+                                                     <p>@Model.contact.Email</p>
+                                                </div>
+                                                <div class="text-center col-md-12" style="margin-top:35px;">                                                    
+                                                    <a class="btn btn-success btn-sx" asp-page="/Index"><i class="glyphicon glyphicon-backward"></i> Lista de Contatos </a>
+                                                </div>
+                                                <div class="text-center col-md-12" style="margin-top:20px;">
+                                                    <a class="btn btn-success btn-sx" asp-page="/EditContact"  asp-route-id="@Model.contact.Id" ><i class="glyphicon glyphicon-backward"></i> Editar Contato </a>
+                                                </div>
+                                                <form method="post">
+                                                    <span class="btn-group pull-right" >
+                                                        <button type="submit" class="btn btn-danger btn-xs" style="margin-top:20px; align-items: center" asp-page-handler="Delete" asp-route-id="@Model.contact.Id" style="height: 27px; margin-top: 0px;"
+                                                                onclick="return confirm('Deseja realmente excluir este Contato?');">
+                                                            <span>Excluir</span>
+
+                                                        </button>
+                                                    </span>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

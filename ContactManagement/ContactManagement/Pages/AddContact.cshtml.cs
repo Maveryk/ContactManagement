@@ -24,11 +24,15 @@ namespace ContactManagement.Pages
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid && contact.emailValido())
+            {                
                 _contactRepository.Add(contact);
 
                 return RedirectToPage("/Index");
+            }
+            else
+            {                
+                ModelState.AddModelError("contact.Email", "O e-mail não é válido.");
             }
             return Page();
         }

@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Contacts";
+    ViewData["Title"] = "Contatos";
 }
 <div class="jumbotron jumbotron-fluid text-center">
     <div class="container">
@@ -18,10 +18,8 @@
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Contato</th>
-                <th scope="col">Email</th>
+                <th scope="col">Detalhes</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Excluir</th>
             </tr>
@@ -29,16 +27,21 @@
         <tbody>
             @foreach (var contact in Model.contacts)
             {
-                <tr>
-                    <td>@contact.Id</td>
+                <tr>                   
                     <td>@contact.Name</td>
-                    <td>@contact.Contato</td>
-                    <td>@contact.Email</td>       
+                    <td>
+                        <form method="post">
+                            <span class="btn-group pull-right">
+                                <a class="btn btn-warning btn-xs" asp-page="/DetailContact" asp-route-id="@contact.Id" style="background-color: green; height: 40px; margin-top: -1px; align-items: center; color: white">
+                                    Detalhes
+                                </a>
+                            </span>
+                        </form>
+                    </td>
                     <td>
                         <form method="post">
                             <span class="btn-group pull-right" >
                                 <a class="btn btn-warning btn-xs" asp-page="/EditContact" asp-route-id="@contact.Id" style="background-color: blueviolet; height: 40px; margin-top: -1px; align-items: center; color: white">
-
                                     Editar
                                 </a>                                
                             </span>

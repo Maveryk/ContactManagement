@@ -30,7 +30,18 @@ public class ContactRepository : IContactRepository
     {
         try
         {
-            _context.contacts.Remove(contact);
+            var existingContact = _context.contacts.FirstOrDefault(c => c.Id == contact.Id);
+
+            if (existingContact == null)
+            {
+                throw new InvalidOperationException("O contato não foi encontrado no banco de dados.");
+            }
+
+            existingContact.IsDeleted = true;
+            // Indique que a entidade foi modificada e precisa ser atualizada no banco de dados
+            _context.Entry(existingContact).State = EntityState.Modified;
+
+            // Salve as alterações no banco de dados
             _context.SaveChanges();
         }
         catch (Exception ex)
@@ -89,7 +100,7 @@ public class ContactRepository : IContactRepository
     {
         try
         {
-            return _context.contacts.ToList();
+            return _context.contacts.Where(ct => ct.IsDeleted == false).ToList();
         }catch (Exception ex) {
             throw ex;
         }
